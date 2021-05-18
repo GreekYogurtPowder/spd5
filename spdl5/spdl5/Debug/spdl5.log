@@ -1,0 +1,26 @@
+﻿  instancja.cpp
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\RandomNumberGenerator.h(29,13): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(72,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(87,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(93,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(135,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(161,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(168,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(187,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(228,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(283,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(294,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(358,23): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(406,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(412,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(468,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(471,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(494,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(500,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(559,20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\instancja.cpp(562,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  main.cpp
+K:\PWR\VI sem\SPD\spd5\spdl5\spdl5\RandomNumberGenerator.h(29,13): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+  zadanie.cpp
+  Generowanie kodu...
+  spdl5.vcxproj -> K:\PWR\VI sem\SPD\spd5\spdl5\Debug\spdl5.exe
