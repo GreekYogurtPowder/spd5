@@ -255,13 +255,13 @@ vector<long> instancja::johnson() {
 
 vector<long> instancja::neh(bool czyWypisywac, int wersja) {
 	// wersja 0 - bez modyfikacji
-	// wersja 1 - Modyfikacja z usuwaniem zadania najczesciej pojawiajacego siê na œcie¿sciezce krytycznej
+	// wersja 1 - Modyfikacja z usuwaniem zadania najczesciej pojawiajacego siê na sciezce krytycznej
 	// wersja 2 - Modyfikacja z usuwaniem zadania z najwieksza suma czasu trwania operacji na sciezce krytycznej
 
 	vector<long> pi; // wektor z wynikowa kolejnoscia pi
-	vector<zadanie> wektor_W; //wektor zadan posortowanych malejaco wedlug sumy czasow trwania opracji
+	vector<zadanie> wektor_W; //wektor zadan posortowanych malejaco wedlug sumy czasow trwania opracji (wg sum_p)
 
-	for (int i = 0; i < ilosc_zadan; i++) { //wypelnienie wektora zadan nieuszeregowanych
+	for (int i = 0; i < ilosc_zadan; i++) {
 		wektor_W.push_back(lista_zadan[i]);
 	}
 
@@ -300,16 +300,14 @@ vector<long> instancja::neh(bool czyWypisywac, int wersja) {
 				cout << ", ";
 			}
 		}
+
+		cout << endl;
 	}
 
 	long ocena_pomocnicza;
 	long najlepsza_ocena;
 	int najlepsza_ocena_indeks;
 	long usuniete_zadanie;
-
-	if (czyWypisywac) {
-		cout << endl;
-	}
 
 	for (int i = 0; i < ilosc_zadan; i++) {
 		najlepsza_ocena = 2147483647;
@@ -355,13 +353,14 @@ vector<long> instancja::neh(bool czyWypisywac, int wersja) {
 
 			if (usuniete_zadanie != -1) {
 
-				for (int j = 0; j < pi.size(); j++) {
+				for (int j = 0; j < pi.size(); j++) { //wyszukanie w PI zadania ktore trzeba usunac
 					if (pi[j] == usuniete_zadanie) {
 						pi.erase(pi.begin() + j);
 						break;
 					}
 				}
 
+				//wstawimy na kazda mozliwa pozycje jak w NEH bez modyfikacji
 				najlepsza_ocena = 2147483647;
 				najlepsza_ocena_indeks = -1;
 
@@ -401,7 +400,6 @@ long instancja::najwiekszaIloscOperacjiNaSciezce(vector<long> pi, long pomijane_
 
 	vector<zadanie> posortowana_lista;
 	vector<vector<long> > czas_C; //moment zakonczenia
-	vector<long> numer_zadania_operacji; //numery zadan do ktorych naleza poszczegolne czasy zakonczenia
 
 	for (int i = 0; i < pi.size(); i++) {
 		posortowana_lista.push_back(lista_zadan[pi[i] - 1]);
@@ -414,26 +412,21 @@ long instancja::najwiekszaIloscOperacjiNaSciezce(vector<long> pi, long pomijane_
 			if (j == 0) {
 				if (i == 0) {
 					czas_C[i].push_back(posortowana_lista[i].p[j]);
-					numer_zadania_operacji.push_back(i);
 				}
 				else {
 					czas_C[i].push_back(czas_C[i - 1][j] + posortowana_lista[i].p[j]);
-					numer_zadania_operacji.push_back(i);
 				}
 			}
 			else {
 				if (i == 0) {
 					czas_C[i].push_back(czas_C[i][j - 1] + posortowana_lista[i].p[j]);
-					numer_zadania_operacji.push_back(i);
 				}
 				else {
 					if (czas_C[i - 1][j] < czas_C[i][j - 1]) {
 						czas_C[i].push_back(czas_C[i][j - 1] + posortowana_lista[i].p[j]);
-						numer_zadania_operacji.push_back(i);
 					}
 					else {
 						czas_C[i].push_back(czas_C[i - 1][j] + posortowana_lista[i].p[j]);
-						numer_zadania_operacji.push_back(i);
 					}
 				}
 			}
@@ -449,7 +442,7 @@ long instancja::najwiekszaIloscOperacjiNaSciezce(vector<long> pi, long pomijane_
 	sciezka_krytyczna.push_back(j_helper);
 	cmaxHelper -= posortowana_lista[j_helper].p[m_helper];
 
-	while (cmaxHelper > 0) {
+	while (cmaxHelper > 0) { //szukanie operacji ktora skonczyla sie w momencie rozpoczecia aktualnej
 		if (j_helper > 0 && czas_C[j_helper - 1][m_helper] == cmaxHelper) {
 			j_helper = j_helper - 1;
 		}
@@ -465,7 +458,7 @@ long instancja::najwiekszaIloscOperacjiNaSciezce(vector<long> pi, long pomijane_
 	long ilosc_wystapien_najczestszego_zdania = -1;
 	long licznik_wystapien;
 
-	for (int i = 0; i < pi.size(); i++) {
+	for (int i = 0; i < pi.size(); i++) { //zliczanie ktore zadanie wystepowalo najczesciej
 		licznik_wystapien = 0;
 
 		for (int j = 0; j < sciezka_krytyczna.size(); j++) {
@@ -489,7 +482,6 @@ long instancja::najwiekszaSumaOperacjiNaSciezce(vector<long> pi, long pomijane_z
 
 	vector<zadanie> posortowana_lista;
 	vector<vector<long> > czas_C; //moment zakonczenia
-	vector<long> numer_zadania_operacji; //numery zadan do ktorych naleza poszczegolne czasy zakonczenia
 
 	for (int i = 0; i < pi.size(); i++) {
 		posortowana_lista.push_back(lista_zadan[pi[i] - 1]);
@@ -502,26 +494,21 @@ long instancja::najwiekszaSumaOperacjiNaSciezce(vector<long> pi, long pomijane_z
 			if (j == 0) {
 				if (i == 0) {
 					czas_C[i].push_back(posortowana_lista[i].p[j]);
-					numer_zadania_operacji.push_back(i);
 				}
 				else {
 					czas_C[i].push_back(czas_C[i - 1][j] + posortowana_lista[i].p[j]);
-					numer_zadania_operacji.push_back(i);
 				}
 			}
 			else {
 				if (i == 0) {
 					czas_C[i].push_back(czas_C[i][j - 1] + posortowana_lista[i].p[j]);
-					numer_zadania_operacji.push_back(i);
 				}
 				else {
 					if (czas_C[i - 1][j] < czas_C[i][j - 1]) {
 						czas_C[i].push_back(czas_C[i][j - 1] + posortowana_lista[i].p[j]);
-						numer_zadania_operacji.push_back(i);
 					}
 					else {
 						czas_C[i].push_back(czas_C[i - 1][j] + posortowana_lista[i].p[j]);
-						numer_zadania_operacji.push_back(i);
 					}
 				}
 			}
@@ -531,6 +518,7 @@ long instancja::najwiekszaSumaOperacjiNaSciezce(vector<long> pi, long pomijane_z
 	vector<long> sciezka_krytyczna;
 	vector<long> czasy_trwania_operacji_na_sciezce;
 
+	//zapisywanie numerow i czasow trwania zadan na sciezce krytycznej
 	long j_helper = pi.size() - 1;
 	long m_helper = ilosc_operacji - 1;
 	long cmaxHelper = czas_C[j_helper][m_helper];
@@ -556,7 +544,7 @@ long instancja::najwiekszaSumaOperacjiNaSciezce(vector<long> pi, long pomijane_z
 	long najwieksza_suma = -1;
 	long licznik_sumy;
 
-	for (int i = 0; i < pi.size(); i++) {
+	for (int i = 0; i < pi.size(); i++) { //zliczanie ktore zadanie na sciezce krytycznej trwa najdluzej
 		licznik_sumy = 0;
 
 		for (int j = 0; j < sciezka_krytyczna.size(); j++) {

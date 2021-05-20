@@ -27,9 +27,9 @@ int main()
 	inst.wypiszWyniki(pi);
 	cout << "Czas dzialania: " << (stop - start) / 1000.0 << " s" << endl;
 
-	cout << endl << "-----ALGORYTM NEH-----" << endl << endl;
+	cout << endl << "-----ALGORYTM NEH-----" << endl;
 	start = clock();
-	pi = inst.neh(false, 0);
+	pi = inst.neh(true, 0);
 	stop = clock();
 	cout << endl;
 	inst.wypiszPi(pi);
@@ -37,9 +37,9 @@ int main()
 	inst.wypiszWyniki(pi);
 	cout << "Czas dzialania: " << (stop - start) / 1000.0 << " s" << endl;
 
-	cout << endl << "-----ALGORYTM NEH+ NAJCZESTSZE ZADANIE-----" << endl << endl;
+	cout << endl << "-----ALGORYTM NEH+ NAJCZESTSZE ZADANIE-----" << endl;
 	start = clock();
-	pi = inst.neh(false, 1);
+	pi = inst.neh(true, 1);
 	stop = clock();
 	cout << endl;
 	inst.wypiszPi(pi);
@@ -47,7 +47,7 @@ int main()
 	inst.wypiszWyniki(pi);
 	cout << "Czas dzialania: " << (stop - start) / 1000.0 << " s" << endl;
 
-	cout << endl << "-----ALGORYTM NEH+ NAJDLUZSZE ZADANIE-----" << endl << endl;
+	cout << endl << "-----ALGORYTM NEH+ NAJDLUZSZE ZADANIE-----" << endl;
 	start = clock();
 	pi = inst.neh(false, 2);
 	stop = clock();

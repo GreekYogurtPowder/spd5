@@ -10,7 +10,7 @@ class zadanie
 public:
 	long j; //nr zadania
 	vector<long> p; //czasy trwania
-	long sum_p; //suma czasow trwania ze wszystkich maszyn
+	long sum_p; //suma czasow trwania operacji ze wszystkich maszyn
 	zadanie();
 };
 
